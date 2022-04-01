@@ -45,9 +45,9 @@ dockers:
   - "--label=org.label-schema.version={{.Version}}"
   - "--label=org.label-schema.name={{.ProjectName}}"
   image_templates:
-  - 'chnsz/tf-linter:{{ .Version }}'
-  - 'chnsz/tf-linter:{{ .Major }}.{{ .Minor }}'
-  - 'chnsz/tf-linter:latest'
+  - 'hmbig2/tf-linter:{{ .Version }}'
+  - 'hmbig2/tf-linter:{{ .Major }}.{{ .Minor }}'
+  - 'hmbig2/tf-linter:latest'
 milestones:
 -
   close: true
