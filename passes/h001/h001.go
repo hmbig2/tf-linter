@@ -1,4 +1,4 @@
-package argsAccCheck
+package h001
 
 import (
 	"bytes"
@@ -13,10 +13,10 @@ import (
 	"golang.org/x/tools/go/analysis"
 )
 
-const analyzerName = "argumentsAccCheck"
+const analyzerName = "h001"
 
 const doc = `check for schema arguments that do not exist in Acceptance Test Checks.
-The argumentsAccCheck analyzer reports cases of schema arguments that do not exist in Acceptance Test Checks.`
+The h001 analyzer reports cases of schema arguments that do not exist in Acceptance Test Checks.`
 
 var (
 	fields string
