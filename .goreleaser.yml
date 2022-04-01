@@ -1,0 +1,56 @@
+archives:
+-
+  format_overrides:
+  - goos: windows
+    format: zip
+before:
+  hooks:
+    - go mod tidy
+brews:
+-
+  dependencies:
+  - go
+  description: Terraform Provider Linter
+  folder: Formula
+  tap:
+    owner: chnsz
+    name: chnsz
+  homepage: https://github.com/chnsz/tf-linter
+  install: |
+    bin.install "tflinter"
+  test: |
+    system "#{bin}/tflinter -V"
+builds:
+-
+  env:
+  - CGO_ENABLED=0
+  - GOFLAGS=-mod=readonly
+  goos:
+  - darwin
+  - windows
+  - linux
+  goarch:
+  - amd64
+  - 386
+  ldflags:
+    - '-s -w -X main.version={{.Version}} -X main.commit={{.Commit}}'
+  main: ./cmd/tflint
+
+changelog:
+  skip: true
+dockers:
+-
+  build_flag_templates:
+  - "--label=org.label-schema.schema-version=1.0"
+  - "--label=org.label-schema.version={{.Version}}"
+  - "--label=org.label-schema.name={{.ProjectName}}"
+  image_templates:
+  - 'chnsz/tf-linter:{{ .Version }}'
+  - 'chnsz/tf-linter:{{ .Major }}.{{ .Minor }}'
+  - 'chnsz/tf-linter:latest'
+milestones:
+-
+  close: true
+signs:
+-
+  artifacts: checksum
