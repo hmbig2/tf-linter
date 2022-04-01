@@ -51,6 +51,3 @@ dockers:
 milestones:
 -
   close: true
-signs:
--
-  artifacts: checksum
