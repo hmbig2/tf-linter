@@ -6,27 +6,12 @@ archives:
 before:
   hooks:
     - go mod tidy
-brews:
--
-  dependencies:
-  - go
-  description: Terraform Provider Linter
-  folder: Formula
-  tap:
-    owner: chnsz
-    name: tf-linter
-  homepage: https://github.com/chnsz/tf-linter
-  install: |
-    bin.install "tflinter"
-  test: |
-    system "#{bin}/tflinter -V"
 builds:
 -
   env:
   - CGO_ENABLED=0
   - GOFLAGS=-mod=readonly
   goos:
-  - darwin
   - windows
   - linux
   goarch:
