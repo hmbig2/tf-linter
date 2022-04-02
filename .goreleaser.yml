@@ -14,7 +14,7 @@ brews:
   folder: Formula
   tap:
     owner: chnsz
-    name: chnsz
+    name: tf-linter
   homepage: https://github.com/chnsz/tf-linter
   install: |
     bin.install "tflinter"
